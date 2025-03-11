@@ -1,0 +1,13 @@
+coverage/
+AGENTS.md
+.DS_Store
+dist/
+bin/
+.claude
+CLAUDE.md
+tmp/
+*.log
+build/
+venv/
+node_modules/
+*.pyc

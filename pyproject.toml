@@ -1,0 +1,10 @@
+[project]
+name = "tomatotasks"
+version = "0.0.1"
+description = "CLI Pomodoro + task notes"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.scripts]
+tomato = "tomatotasks.cli:main"
+
