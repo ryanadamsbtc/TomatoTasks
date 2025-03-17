@@ -20,3 +20,7 @@ Roadmap
 - Pomodoro session tracking
 - Optional TUI later if time
 
+Notes
+- This is a personal nights-and-weekends project.
+- I’ll keep commits small and pragmatic.
+- Real usage examples will evolve as the CLI settles.
