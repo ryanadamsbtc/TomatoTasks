@@ -12,7 +12,8 @@ def main() -> None:
     p_add = sub.add_parser("add", help="add a task")
     p_add.add_argument("title", help="task title")
 
-    sub.add_parser("ls", help="list tasks")
+    p_ls = sub.add_parser("ls", help="list tasks")
+    p_ls.add_argument("--all", action="store_true", help="include done tasks")
 
     p_done = sub.add_parser("done", help="mark a task done")
     p_done.add_argument("id", help="task id")
@@ -31,6 +32,8 @@ def main() -> None:
     elif args.cmd == "ls":
         tasks = storage.list_tasks()
         for t in tasks:
+            if not args.all and t.done:
+                continue
             mark = "[x]" if t.done else "[ ]"
             print(f"{mark} {t.id}  {t.title}")
     elif args.cmd == "done":
@@ -49,4 +52,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
