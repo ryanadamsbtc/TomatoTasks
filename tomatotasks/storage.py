@@ -49,7 +49,10 @@ def add_task(title: str) -> Task:
 
 def list_tasks() -> List[Task]:
     db = read_db()
-    return [Task(**t) for t in db.get("tasks", [])]
+    # newest first for convenience
+    items = [Task(**t) for t in db.get("tasks", [])]
+    items.sort(key=lambda x: x.created_at, reverse=True)
+    return items
 
 
 def mark_done(task_id: str) -> bool:
@@ -86,4 +89,3 @@ def stop_session() -> None:
 
 def current_session() -> Optional[dict]:
     return read_db().get("session")
-
